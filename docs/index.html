@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube Competitor Tracker</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #0f0f0f;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 32px 24px;
+  }
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; margin: 0 0 6px; }
+  .header .updated { color: #aaa; font-size: 13px; }
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0 32px;
+  }
+  .filter-btn {
+    background: #222;
+    color: #ddd;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .filter-btn:hover { background: #333; }
+  .filter-btn.active { background: #3ea6ff; color: #06121d; font-weight: 600; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .card {
+    display: block;
+    background: #181818;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+  .thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .views-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 7px;
+    border-radius: 4px;
+  }
+  .card-body { padding: 12px; }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-channel { font-size: 12px; color: #aaa; margin-bottom: 2px; }
+  .card-meta { font-size: 12px; color: #888; margin-bottom: 8px; }
+  .card-stats { display: flex; gap: 12px; font-size: 12px; color: #aaa; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>YouTube Competitor Tracker</h1>
+    <div class="updated">Last updated: 6/19/2026, 4:53:35 PM &middot; 70 videos</div>
+  </div>
+  <div class="filters"><button class="filter-btn active" data-channel="all">All</button>
+<button class="filter-btn" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">Football FIFA</button>
+<button class="filter-btn" data-channel="UCTkcrCFNc5iIweQJdP1amzA">Football Plan</button>
+<button class="filter-btn" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">Molcas FC</button>
+<button class="filter-btn" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">PedTalksFutbol</button>
+<button class="filter-btn" data-channel="UCp8U8DEltjkrj12ziQHjkVA">Soccer Ride</button>
+<button class="filter-btn" data-channel="UCbGSf0kL33TRwEqIeOPFuug">Soccer Time</button>
+<button class="filter-btn" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">The World Cup Reporter</button></div>
+  <div class="grid" id="grid">
+    <a class="card" href="https://youtube.com/watch?v=MGcYn4m59sg" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/MGcYn4m59sg/hqdefault.jpg" alt="FIFA Wanted A Bigger World Cup, Fans Saw A Bigger Problem" loading="lazy">
+        <span class="views-badge">7 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Wanted A Bigger World Cup, Fans Saw A Bigger Problem</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 1</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=n2c82HjZnJU" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/n2c82HjZnJU/hqdefault.jpg" alt="FIFA&#39;s Worst Nightmare Begins— World Cup 2026 Claims Its First Victim" loading="lazy">
+        <span class="views-badge">4.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s Worst Nightmare Begins— World Cup 2026 Claims Its First Victim</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 68</span>
+          <span>💬 16</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=E8jh3hM8Q8Q" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/E8jh3hM8Q8Q/hqdefault.jpg" alt="FIFA&#39;s Nightmare Begins: The World Cup Takes Its First Victim!" loading="lazy">
+        <span class="views-badge">204 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s Nightmare Begins: The World Cup Takes Its First Victim!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 1</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=voG5IAuvtVU" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/voG5IAuvtVU/hqdefault.jpg" alt="🚨 New FIFA World Cup 2026 Controversy? Players &amp; Fans Furious Over World Cup Decisions 😳" loading="lazy">
+        <span class="views-badge">49 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">🚨 New FIFA World Cup 2026 Controversy? Players &amp; Fans Furious Over World Cup Decisions 😳</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 2</span>
+          <span>💬 1</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=YoaZgPe54CY" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/YoaZgPe54CY/hqdefault.jpg" alt="World Cup CHAOS: Canada Refuses Handshake After Koné’s Leg-Break Horror!" loading="lazy">
+        <span class="views-badge">8.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">World Cup CHAOS: Canada Refuses Handshake After Koné’s Leg-Break Horror!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 104</span>
+          <span>💬 5</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=w2Sfdr5pY0I" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/w2Sfdr5pY0I/hqdefault.jpg" alt="The World Cup Dark Horse Nobody Wants to Face #shorts" loading="lazy">
+        <span class="views-badge">800 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Dark Horse Nobody Wants to Face #shorts</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 38</span>
+          <span>💬 3</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=D8WeFRzJ7oE" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/D8WeFRzJ7oE/hqdefault.jpg" alt="EL MILAGRO DE EL CONGO | El País que Nadie Esperaba Acaba de Hacer Historia en el Mundial" loading="lazy">
+        <span class="views-badge">1.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">EL MILAGRO DE EL CONGO | El País que Nadie Esperaba Acaba de Hacer Historia en el Mundial</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 26</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=fRXOe4-ghX8" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/fRXOe4-ghX8/hqdefault.jpg" alt="BREAKING: World Cup 2026 Fans Are Being SHUT OUT as FIFA Faces Global Backlash!" loading="lazy">
+        <span class="views-badge">468 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">BREAKING: World Cup 2026 Fans Are Being SHUT OUT as FIFA Faces Global Backlash!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 10</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=bqg3PeyWfRE" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/bqg3PeyWfRE/hqdefault.jpg" alt="FIFA’s World Cup First Round Was A Complete Disaster… (Here&#39;s Why)" loading="lazy">
+        <span class="views-badge">3.3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA’s World Cup First Round Was A Complete Disaster… (Here&#39;s Why)</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 70</span>
+          <span>💬 11</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=Xr49nwCIxJA" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/Xr49nwCIxJA/hqdefault.jpg" alt="The World Cup Made This Goalkeeper a Global Star Overnight #shorts" loading="lazy">
+        <span class="views-badge">890 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Made This Goalkeeper a Global Star Overnight #shorts</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 34</span>
+          <span>💬 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=wDxi-geEkC4" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/wDxi-geEkC4/hqdefault.jpg" alt="The World Cup Claims Its First Victim / world cup drama" loading="lazy">
+        <span class="views-badge">166 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Claims Its First Victim / world cup drama</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 2</span>
+          <span>💬 1</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=djIz0gPstUc" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/djIz0gPstUc/hqdefault.jpg" alt="FIFA Finally Breaks Its Silence on Omar Artan" loading="lazy">
+        <span class="views-badge">488 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Finally Breaks Its Silence on Omar Artan</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">today</div>
+        <div class="card-stats">
+          <span>👍 12</span>
+          <span>💬 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=iTpuYoUkhk8" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/iTpuYoUkhk8/hqdefault.jpg" alt="The World Cup Just Exposed Cristiano Ronaldo" loading="lazy">
+        <span class="views-badge">25.2K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Just Exposed Cristiano Ronaldo</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 264</span>
+          <span>💬 119</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=oRsCZdf9j_8" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/oRsCZdf9j_8/hqdefault.jpg" alt="UEFA Just Humiliated FIFA On The World’s Biggest Stage — And Nobody Can Stop It" loading="lazy">
+        <span class="views-badge">4.3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">UEFA Just Humiliated FIFA On The World’s Biggest Stage — And Nobody Can Stop It</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 37</span>
+          <span>💬 18</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=gpoia00W4Cs" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/gpoia00W4Cs/hqdefault.jpg" alt="FIFA&#39;s VAR Controversy Explodes After Messi Incident l World Cup Drama" loading="lazy">
+        <span class="views-badge">1.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s VAR Controversy Explodes After Messi Incident l World Cup Drama</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 14</span>
+          <span>💬 7</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=dZJ1wR8PErw" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/dZJ1wR8PErw/hqdefault.jpg" alt="Okay, The 2026 Squad of Colombia Is Not Normal" loading="lazy">
+        <span class="views-badge">25.9K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Okay, The 2026 Squad of Colombia Is Not Normal</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 949</span>
+          <span>💬 96</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=_n27bZiz0dI" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/_n27bZiz0dI/hqdefault.jpg" alt="Mbappé Is Building the Greatest World Cup Legacy Ever #shorts" loading="lazy">
+        <span class="views-badge">1.2K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Mbappé Is Building the Greatest World Cup Legacy Ever #shorts</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 38</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=qnRa5TDOXrc" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/qnRa5TDOXrc/hqdefault.jpg" alt="FIFA Promised The Greatest World Cup Ever — Then THIS Shocked Everyone ( England vs Croatia)" loading="lazy">
+        <span class="views-badge">79K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Promised The Greatest World Cup Ever — Then THIS Shocked Everyone ( England vs Croatia)</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 803</span>
+          <span>💬 227</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=qNXh37x-XmI" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/qNXh37x-XmI/hqdefault.jpg" alt="How an Unknown Goalkeeper Stopped the Mighty Spain" loading="lazy">
+        <span class="views-badge">45.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How an Unknown Goalkeeper Stopped the Mighty Spain</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 1.3K</span>
+          <span>💬 114</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=mchEPlT3MIA" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/mchEPlT3MIA/hqdefault.jpg" alt="MÉXICO ENLOQUECIÓ GUADALAJARA: El Tri Volvió a Creer en su Mundial" loading="lazy">
+        <span class="views-badge">47K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">MÉXICO ENLOQUECIÓ GUADALAJARA: El Tri Volvió a Creer en su Mundial</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 557</span>
+          <span>💬 17</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=VX2JY7_xgyQ" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/VX2JY7_xgyQ/hqdefault.jpg" alt="What Erling Haaland Is Doing Shouldn&#39;t Be Possible" loading="lazy">
+        <span class="views-badge">28.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">What Erling Haaland Is Doing Shouldn&#39;t Be Possible</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 637</span>
+          <span>💬 75</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=24xBogQXwAA" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/24xBogQXwAA/hqdefault.jpg" alt="The Real Reason FIFA Banned Egypt &amp; Haiti&#39;s Jersey At World Cup 2026" loading="lazy">
+        <span class="views-badge">4.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The Real Reason FIFA Banned Egypt &amp; Haiti&#39;s Jersey At World Cup 2026</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 43</span>
+          <span>💬 14</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=EuF40p3_y3A" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/EuF40p3_y3A/hqdefault.jpg" alt="🚨 First Victim of FIFA World Cup 2026 🤯 Another Major World Cup 2026 Controversy?" loading="lazy">
+        <span class="views-badge">168 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">🚨 First Victim of FIFA World Cup 2026 🤯 Another Major World Cup 2026 Controversy?</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 3</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=TVXWJ29GqUI" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/TVXWJ29GqUI/hqdefault.jpg" alt="SPAIN LEADS REVOLT: 3 TEAMS REFUSE TO PLAY IN WORLD CUP 2026!" loading="lazy">
+        <span class="views-badge">5.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">SPAIN LEADS REVOLT: 3 TEAMS REFUSE TO PLAY IN WORLD CUP 2026!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 34</span>
+          <span>💬 7</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=fgXTUT_79OU" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/fgXTUT_79OU/hqdefault.jpg" alt="The U.S. Sent Omar Artan Home — Canada Welcomed Him" loading="lazy">
+        <span class="views-badge">552 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The U.S. Sent Omar Artan Home — Canada Welcomed Him</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 6</span>
+          <span>💬 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=Pp13VAj7dhM" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/Pp13VAj7dhM/hqdefault.jpg" alt="Mbappé Doesn&#39;t Play World Cups... He Dominates Them #shorts" loading="lazy">
+        <span class="views-badge">837 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Mbappé Doesn&#39;t Play World Cups... He Dominates Them #shorts</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 19</span>
+          <span>💬 1</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=U5Z2-FG-nIE" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/U5Z2-FG-nIE/hqdefault.jpg" alt="FIFA&#39;s Worst Nightmare: World Cup 2026 Hit by Empty Stadiums &amp; Visa Disaster" loading="lazy">
+        <span class="views-badge">1.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s Worst Nightmare: World Cup 2026 Hit by Empty Stadiums &amp; Visa Disaster</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 26</span>
+          <span>💬 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=W9xjm_Ya6NE" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/W9xjm_Ya6NE/hqdefault.jpg" alt="FIFA&#39;s Worst VAR Nightmare Comes True as Messi Escapes Red Card" loading="lazy">
+        <span class="views-badge">2.3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s Worst VAR Nightmare Comes True as Messi Escapes Red Card</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 24</span>
+          <span>💬 11</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=KvNak_uX7wY" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/KvNak_uX7wY/hqdefault.jpg" alt="FIFA World Cup 2026 Faces New Controversy Iran Forced To Return To Mexico" loading="lazy">
+        <span class="views-badge">2.6K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA World Cup 2026 Faces New Controversy Iran Forced To Return To Mexico</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 35</span>
+          <span>💬 15</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=LmjU4vPUuKc" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/LmjU4vPUuKc/hqdefault.jpg" alt="“MESSI SHOULD’VE SEEN RED!” World Cup VAR Scandal Explodes" loading="lazy">
+        <span class="views-badge">6.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">“MESSI SHOULD’VE SEEN RED!” World Cup VAR Scandal Explodes</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 55</span>
+          <span>💬 21</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=srzXzNQhUYE" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/srzXzNQhUYE/hqdefault.jpg" alt="The World Cup Moment FIFA Didn’t Want You To See" loading="lazy">
+        <span class="views-badge">3.8K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Moment FIFA Didn’t Want You To See</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">1 day ago</div>
+        <div class="card-stats">
+          <span>👍 115</span>
+          <span>💬 31</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=lM-LhsqMRlw" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/lM-LhsqMRlw/hqdefault.jpg" alt="Canada Welcomes Omar Artan as FIFA&#39;s World Cup Crisis Explodes!" loading="lazy">
+        <span class="views-badge">130.3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Canada Welcomes Omar Artan as FIFA&#39;s World Cup Crisis Explodes!</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 2.5K</span>
+          <span>💬 495</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=3rjgU0X_hkU" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/3rjgU0X_hkU/hqdefault.jpg" alt="BREAKING NEWS— Algeria Furious As Messi Escapes Red Card In World Cup Chaos!" loading="lazy">
+        <span class="views-badge">15.4K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">BREAKING NEWS— Algeria Furious As Messi Escapes Red Card In World Cup Chaos!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 106</span>
+          <span>💬 40</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=WnlT9c0bg08" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/WnlT9c0bg08/hqdefault.jpg" alt="“MESSI SHOULD’VE GONE OFF!” VAR Scandal Explodes in Argentina vs Algeria Clash" loading="lazy">
+        <span class="views-badge">6K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">“MESSI SHOULD’VE GONE OFF!” VAR Scandal Explodes in Argentina vs Algeria Clash</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 43</span>
+          <span>💬 21</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=PrMc9plK3mk" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/PrMc9plK3mk/hqdefault.jpg" alt="MESSI ESCAPES RED CARD! Fans Furious Over Shocking Decision" loading="lazy">
+        <span class="views-badge">2.9K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">MESSI ESCAPES RED CARD! Fans Furious Over Shocking Decision</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 20</span>
+          <span>💬 18</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=a2o45cNDAwc" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/a2o45cNDAwc/hqdefault.jpg" alt="Messi Could Do Something Football Hasn&#39;t Seen in 60 Years #shorts" loading="lazy">
+        <span class="views-badge">1.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Messi Could Do Something Football Hasn&#39;t Seen in 60 Years #shorts</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 87</span>
+          <span>💬 3</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=xA8DPQzKiEQ" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/xA8DPQzKiEQ/hqdefault.jpg" alt="The World Cup Has A SERIOUS Lionel Messi Problem AGAIN" loading="lazy">
+        <span class="views-badge">197K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Has A SERIOUS Lionel Messi Problem AGAIN</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 6.7K</span>
+          <span>💬 658</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=TPqWSSWiKl8" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/TPqWSSWiKl8/hqdefault.jpg" alt="The World Cup&#39;s First Casualty Has Arrived / world cup drama" loading="lazy">
+        <span class="views-badge">877 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup&#39;s First Casualty Has Arrived / world cup drama</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 7</span>
+          <span>💬 3</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=tahfGN-9pMI" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/tahfGN-9pMI/hqdefault.jpg" alt="🚨 FIFA World Cup 2026 Faces New Controversy!! Security Checks Shock Uruguay Team" loading="lazy">
+        <span class="views-badge">814 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">🚨 FIFA World Cup 2026 Faces New Controversy!! Security Checks Shock Uruguay Team</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 13</span>
+          <span>💬 8</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=7-1Cw2K7I-k" target="_blank" data-channel="UCN_LFgUkAw9YVlxy9OlWs1A">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/7-1Cw2K7I-k/hqdefault.jpg" alt="okay, we SERIOUSLY have to talk about World Cup Mbappé" loading="lazy">
+        <span class="views-badge">58.9K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">okay, we SERIOUSLY have to talk about World Cup Mbappé</div>
+        <div class="card-channel">PedTalksFutbol</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 1.6K</span>
+          <span>💬 245</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=Pc6u2Uqe5pw" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/Pc6u2Uqe5pw/hqdefault.jpg" alt="What the HECK Happened at The Saudi Arabia vs Uruguay world cup 2026" loading="lazy">
+        <span class="views-badge">3.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">What the HECK Happened at The Saudi Arabia vs Uruguay world cup 2026</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 45</span>
+          <span>💬 7</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=uDdqii_GAKU" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/uDdqii_GAKU/hqdefault.jpg" alt="FIFA&#39;s WORST World Cup 2026 NIGHTMARE Just EXPLODED" loading="lazy">
+        <span class="views-badge">11.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s WORST World Cup 2026 NIGHTMARE Just EXPLODED</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 137</span>
+          <span>💬 26</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=n64ovGvSTYc" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/n64ovGvSTYc/hqdefault.jpg" alt="IRÁN YA ES MEXICANO 🇲🇽🇮🇷 La HISTORIA Más HEROICA del Mundial 2026" loading="lazy">
+        <span class="views-badge">399.2K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">IRÁN YA ES MEXICANO 🇲🇽🇮🇷 La HISTORIA Más HEROICA del Mundial 2026</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 6.9K</span>
+          <span>💬 554</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=BLIiU3-uVzA" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/BLIiU3-uVzA/hqdefault.jpg" alt="The First Victim of World Cup 2026 Has Already Fallen" loading="lazy">
+        <span class="views-badge">3.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The First Victim of World Cup 2026 Has Already Fallen</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 39</span>
+          <span>💬 6</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=8X-ZCtRYqkA" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/8X-ZCtRYqkA/hqdefault.jpg" alt="FIFA Under Fire: 5 Teams Revolt Against World Cup 2026 Changes" loading="lazy">
+        <span class="views-badge">13.9K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Under Fire: 5 Teams Revolt Against World Cup 2026 Changes</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 235</span>
+          <span>💬 37</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=A0I8-9Ntwms" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/A0I8-9Ntwms/hqdefault.jpg" alt="FIFA’S BIGGEST VAR FAILURE? OFFSIDE CALL IN WORLD CUP 2026 STUNNED FANS" loading="lazy">
+        <span class="views-badge">1.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA’S BIGGEST VAR FAILURE? OFFSIDE CALL IN WORLD CUP 2026 STUNNED FANS</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 8</span>
+          <span>💬 5</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=z4zIMWYlW3I" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/z4zIMWYlW3I/hqdefault.jpg" alt="The World Cup Just Took Its FIRST Victim" loading="lazy">
+        <span class="views-badge">359K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The World Cup Just Took Its FIRST Victim</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 1.8K</span>
+          <span>💬 131</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=WPlixpf5Jk8" target="_blank" data-channel="UCp8U8DEltjkrj12ziQHjkVA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/WPlixpf5Jk8/hqdefault.jpg" alt="World Cup 2026 in Chaos: 5 Teams Revolt Against FIFA&#39;s New Rules" loading="lazy">
+        <span class="views-badge">261.6K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">World Cup 2026 in Chaos: 5 Teams Revolt Against FIFA&#39;s New Rules</div>
+        <div class="card-channel">Soccer Ride</div>
+        <div class="card-meta">2 days ago</div>
+        <div class="card-stats">
+          <span>👍 3.5K</span>
+          <span>💬 653</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=qvDHfcGi6EA" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/qvDHfcGi6EA/hqdefault.jpg" alt="Trump Is Becoming FIFA’s Biggest World Cup Problem" loading="lazy">
+        <span class="views-badge">4.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Trump Is Becoming FIFA’s Biggest World Cup Problem</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 85</span>
+          <span>💬 20</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=t6ar-3KPcwk" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/t6ar-3KPcwk/hqdefault.jpg" alt="US Security Targets Uruguay Team in Shocking World Cup Arrival!" loading="lazy">
+        <span class="views-badge">1.4K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">US Security Targets Uruguay Team in Shocking World Cup Arrival!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 23</span>
+          <span>💬 7</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=nCbgNukabEg" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/nCbgNukabEg/hqdefault.jpg" alt="FIFA Just Ruined The World Cup With This New Rule.." loading="lazy">
+        <span class="views-badge">1.4K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Just Ruined The World Cup With This New Rule..</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 12</span>
+          <span>💬 5</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=YUDdK9m1xeU" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/YUDdK9m1xeU/hqdefault.jpg" alt="World Cup 2026 Stops for Ads Fans Aren&#39;t Happy l World Cup Drama" loading="lazy">
+        <span class="views-badge">50 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">World Cup 2026 Stops for Ads Fans Aren&#39;t Happy l World Cup Drama</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 0</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=PJagY5lmPNk" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/PJagY5lmPNk/hqdefault.jpg" alt="TIEMBLA LA FIFA | JAPÓN TOMÓ EL MUNDIAL" loading="lazy">
+        <span class="views-badge">49.5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">TIEMBLA LA FIFA | JAPÓN TOMÓ EL MUNDIAL</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 402</span>
+          <span>💬 40</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=Hgq500wX8H0" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/Hgq500wX8H0/hqdefault.jpg" alt="🚨 Ivory Coast Fans BANNED From The World Cup? FIFA Facing New Backlash" loading="lazy">
+        <span class="views-badge">5K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">🚨 Ivory Coast Fans BANNED From The World Cup? FIFA Facing New Backlash</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 73</span>
+          <span>💬 32</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=PQVoaki62Kw" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/PQVoaki62Kw/hqdefault.jpg" alt="FIFA&#39;s New Rules Spark Outrage as 4 Teams Push Back" loading="lazy">
+        <span class="views-badge">157 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s New Rules Spark Outrage as 4 Teams Push Back</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 0</span>
+          <span>💬 0</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=reTeQvCYsjM" target="_blank" data-channel="UCG-0HCLyn7v_eh096Vp8AQg">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/reTeQvCYsjM/hqdefault.jpg" alt="BREAKING: Uruguay Plays In Hours… But They&#39;re Still Locked Out Of The U.S." loading="lazy">
+        <span class="views-badge">538 views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">BREAKING: Uruguay Plays In Hours… But They&#39;re Still Locked Out Of The U.S.</div>
+        <div class="card-channel">Football FIFA</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 9</span>
+          <span>💬 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=VGaeJn1fzbc" target="_blank" data-channel="UCbGSf0kL33TRwEqIeOPFuug">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/VGaeJn1fzbc/hqdefault.jpg" alt="World Cup 2026 Erupts Into Total Chaos in the Host Nation!" loading="lazy">
+        <span class="views-badge">1.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">World Cup 2026 Erupts Into Total Chaos in the Host Nation!</div>
+        <div class="card-channel">Soccer Time</div>
+        <div class="card-meta">3 days ago</div>
+        <div class="card-stats">
+          <span>👍 28</span>
+          <span>💬 6</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=oFrPLCr0ZLw" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/oFrPLCr0ZLw/hqdefault.jpg" alt="FIFA Just Ruined The World Cup With This New Rule.." loading="lazy">
+        <span class="views-badge">51.6K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Just Ruined The World Cup With This New Rule..</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">4 days ago</div>
+        <div class="card-stats">
+          <span>👍 890</span>
+          <span>💬 277</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=94tPcuKGcvw" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/94tPcuKGcvw/hqdefault.jpg" alt="The Biggest Scandal in World Cup History | Politics vs FIFA 👀 World Cup 2026 Updates" loading="lazy">
+        <span class="views-badge">3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The Biggest Scandal in World Cup History | Politics vs FIFA 👀 World Cup 2026 Updates</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">4 days ago</div>
+        <div class="card-stats">
+          <span>👍 27</span>
+          <span>💬 11</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=ELNn5KVS2Qo" target="_blank" data-channel="UCTkcrCFNc5iIweQJdP1amzA">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/ELNn5KVS2Qo/hqdefault.jpg" alt="FIFA&#39;s Worst Nightmare 🤯 World Cup 2026 Turns Political 👀 Million Questions On FIFA&#39;s Silence" loading="lazy">
+        <span class="views-badge">1.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA&#39;s Worst Nightmare 🤯 World Cup 2026 Turns Political 👀 Million Questions On FIFA&#39;s Silence</div>
+        <div class="card-channel">Football Plan</div>
+        <div class="card-meta">4 days ago</div>
+        <div class="card-stats">
+          <span>👍 10</span>
+          <span>💬 4</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=Ny--HUmHOZY" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/Ny--HUmHOZY/hqdefault.jpg" alt="SUECIA TOMÓ MONTERREY | MILES VIAJARON A MÉXICO PARA APOYAR A SU SELECCIÓN EN EL MUNDIAL 2026" loading="lazy">
+        <span class="views-badge">203.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">SUECIA TOMÓ MONTERREY | MILES VIAJARON A MÉXICO PARA APOYAR A SU SELECCIÓN EN EL MUNDIAL 2026</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">4 days ago</div>
+        <div class="card-stats">
+          <span>👍 2.6K</span>
+          <span>💬 128</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=AYVgFajvzjI" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/AYVgFajvzjI/hqdefault.jpg" alt="TÚNEZ TOMÓ MONTERREY | Miles de Africanos INVADIERON Monterrey" loading="lazy">
+        <span class="views-badge">35.7K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">TÚNEZ TOMÓ MONTERREY | Miles de Africanos INVADIERON Monterrey</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">4 days ago</div>
+        <div class="card-stats">
+          <span>👍 413</span>
+          <span>💬 24</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=l5Ur9B8J728" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/l5Ur9B8J728/hqdefault.jpg" alt="FIFA’s Worst World Cup Nightmare Just EXPLODED" loading="lazy">
+        <span class="views-badge">236.6K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA’s Worst World Cup Nightmare Just EXPLODED</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">5 days ago</div>
+        <div class="card-stats">
+          <span>👍 3.2K</span>
+          <span>💬 939</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=S9jL35baZTA" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/S9jL35baZTA/hqdefault.jpg" alt="The 2026 World Cup Has a Team USA Problem.. (And Nobody Saw It Coming)" loading="lazy">
+        <span class="views-badge">9.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The 2026 World Cup Has a Team USA Problem.. (And Nobody Saw It Coming)</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">5 days ago</div>
+        <div class="card-stats">
+          <span>👍 136</span>
+          <span>💬 42</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=vbGkou7DTAA" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/vbGkou7DTAA/hqdefault.jpg" alt="Who Is USA’s Star Folarin Balogun? (And Why Is He Becoming a Problem)" loading="lazy">
+        <span class="views-badge">10.1K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Who Is USA’s Star Folarin Balogun? (And Why Is He Becoming a Problem)</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">5 days ago</div>
+        <div class="card-stats">
+          <span>👍 187</span>
+          <span>💬 42</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=vY4YfrPomKI" target="_blank" data-channel="UCJxXdDnzK5JCreDRtTVAW5w">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/vY4YfrPomKI/hqdefault.jpg" alt="FIFA Cancels World Cup Tickets Days Before Kickoff" loading="lazy">
+        <span class="views-badge">45.2K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">FIFA Cancels World Cup Tickets Days Before Kickoff</div>
+        <div class="card-channel">The World Cup Reporter</div>
+        <div class="card-meta">6 days ago</div>
+        <div class="card-stats">
+          <span>👍 983</span>
+          <span>💬 215</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=SCoxHsmIu2E" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/SCoxHsmIu2E/hqdefault.jpg" alt="¿Cómo 20,000 COREANOS TOMARON Guadalajara?" loading="lazy">
+        <span class="views-badge">378.3K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">¿Cómo 20,000 COREANOS TOMARON Guadalajara?</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">6 days ago</div>
+        <div class="card-stats">
+          <span>👍 5K</span>
+          <span>💬 235</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=lIt3UpqU0tc" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/lIt3UpqU0tc/hqdefault.jpg" alt="COLOMBIA TOMA GUADALAJARA | La AFICIÓN que Puede DOMINAR el Mundial 2026" loading="lazy">
+        <span class="views-badge">282.8K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">COLOMBIA TOMA GUADALAJARA | La AFICIÓN que Puede DOMINAR el Mundial 2026</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">7 days ago</div>
+        <div class="card-stats">
+          <span>👍 2.4K</span>
+          <span>💬 172</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=zSroCyu7-6Q" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/zSroCyu7-6Q/hqdefault.jpg" alt="URUGUAY PARALIZÓ CANCÚN | ¿Será La Sorpresa del Mundial?" loading="lazy">
+        <span class="views-badge">92.2K views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">URUGUAY PARALIZÓ CANCÚN | ¿Será La Sorpresa del Mundial?</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">8 days ago</div>
+        <div class="card-stats">
+          <span>👍 1.4K</span>
+          <span>💬 181</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://youtube.com/watch?v=fDYmnvmI8pA" target="_blank" data-channel="UClkJTofrSxnQA2R6ng8oE6Q">
+      <div class="thumb-wrap">
+        <img class="thumb" src="https://i.ytimg.com/vi/fDYmnvmI8pA/hqdefault.jpg" alt="IRÁN PARALIZÓ MÉXICO | La Selección Más VIGILADA del Mundial 2026" loading="lazy">
+        <span class="views-badge">1.6M views</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">IRÁN PARALIZÓ MÉXICO | La Selección Más VIGILADA del Mundial 2026</div>
+        <div class="card-channel">Molcas FC</div>
+        <div class="card-meta">10 days ago</div>
+        <div class="card-stats">
+          <span>👍 13.8K</span>
+          <span>💬 1.4K</span>
+        </div>
+      </div>
+    </a></div>
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const channel = btn.dataset.channel;
+        cards.forEach((card) => {
+          card.style.display = channel === "all" || card.dataset.channel === channel ? "" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
